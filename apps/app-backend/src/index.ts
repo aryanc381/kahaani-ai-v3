@@ -1,5 +1,7 @@
 import express from 'express';
 import rootRouter from './routes/root.js';
+import cookieParse from 'cookie-parser';
+import jsonwebtoken from 'jsonwebtoken';
 
 const app = express();
 app.use(express.json());
