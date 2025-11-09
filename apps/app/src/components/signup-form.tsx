@@ -61,10 +61,10 @@ export function SignupForm({
             <p>Sign up with Google instead</p>
           </Button>
           <FieldDescription className="px-6 text-center">
-            Already have an account? <a href="#">Sign in</a>
+            Already have an account? <a href="/login">&nbsp;Login instead</a>
           </FieldDescription>
         </Field>
       </FieldGroup>
     </form>
-  )
+  );
 }
