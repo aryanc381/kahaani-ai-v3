@@ -23,6 +23,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@mistralai/mistralai": "^1.10.0",
     "@tailwindcss/vite": "^4.1.17",
     "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.10",
@@ -40,6 +41,7 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
     "tailwindcss": "^4.1.17",
+    "undici": "^7.16.0",
     "zod": "^4.1.12"
   }
 }
