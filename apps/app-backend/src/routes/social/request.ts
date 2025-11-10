@@ -14,6 +14,7 @@ const requestBody = zod.object({
 router.post('/request', async (req, res) => {
     try {
         const parsed = requestBody.safeParse(req.body);
+        // checking if the req body is parsed correctly
         if(!parsed.success) {
             const formattedErrors = parsed.error.issues.map((err) => ({
                 path: err.path[0],
@@ -26,14 +27,16 @@ router.post('/request', async (req, res) => {
             });
         }
 
+        // checking if the user is sending req to himself / herself
         if(req.body.rReceiver === req.body.rSender) {
             return res.json({
                 status: 400, // Bad Request
                 msg: 'You cannot send request to yourself.'
             });
         }
-        
+
         const existingUser = await users.findOne({ "userDetails.email": req.body.rReceiver });
+        // checking if the user is sending a req to a recipient that does not exists
         if(!existingUser) {
             return res.json({
                 status: 404,
@@ -41,6 +44,22 @@ router.post('/request', async (req, res) => {
             });
         }
 
+        // checking if user has already sent a request
+        if(existingUser.userDetails.pendingUsers.includes(req.body.rSender)) {
+            return res.json({
+                status: 409, // conflict
+                msg: 'Request already sent.'
+            });
+        }
+
+        // checking if sender and recipient are already friends
+        if(existingUser.userDetails.acceptedUsers.includes(req.body.rSender)) {
+            return res.json({
+                status: 409,
+                msg: 'You are already friends.'
+            });
+        }
+        
         existingUser.userDetails.pendingUsers.push(req.body.rSender);
         await existingUser.save();
 
@@ -54,7 +73,7 @@ router.post('/request', async (req, res) => {
     } catch(err) {
         return res.json({
             status: 500,
-            msg: 'Interna Server Error.'
+            msg: 'Internal Server Error.'
         });
     }
 });
