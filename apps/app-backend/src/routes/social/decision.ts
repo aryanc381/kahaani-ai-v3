@@ -77,7 +77,6 @@ router.post('/decision', async(req, res) => {
         }
 
         const recipient = await users.findOne({ "userDetails.email": req.body.rRecipient });
-
         if(!recipient) {
             return res.json({
                 status: 404,
