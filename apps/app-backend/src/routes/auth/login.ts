@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(express.json());
 
 const loginBody = zod.object({
-    emaiL: zod.email(),
+    email: zod.email(),
     password: zod.string()
 });
 
