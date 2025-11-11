@@ -5,6 +5,7 @@ import { ThemeProvider } from './components/theme-provider';
 import Login from './pages/login';
 import { Toaster } from './components/ui/sonner';
 import Home from './pages/home';
+import Map from './components/map/map';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/map' element={<Map />} />
         </Routes>
       </BrowserRouter>
     </div>
