@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 
 interface inputProps {
-  html: string
+  html: string;
   id: string;
   type: string;
   placeholder: string;
@@ -100,9 +100,7 @@ export function SignupForm({
             <FaGoogle />
             <p>Sign up with Google instead</p>
           </Button>
-          <FieldDescription className="px-6 text-center">
-            Already have an account? <a href="/">&nbsp;Login instead</a>
-          </FieldDescription>
+          <FieldDescription className="px-6 text-center">Already have an account? <a href="/">&nbsp;Login instead</a></FieldDescription>
         </Field>
       </FieldGroup>
     </form>

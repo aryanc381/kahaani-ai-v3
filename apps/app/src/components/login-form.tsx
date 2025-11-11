@@ -9,11 +9,42 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { FaGoogle } from "react-icons/fa"
+import { useState } from "react"
+import { toast } from "sonner"
+import axios from "axios"
+
+interface LoginProps {
+  email: string;
+  pass: string;
+}
+
+async function loginHandler({email, pass}: LoginProps) {
+  await toast.promise(
+    async () => {
+      const response = await axios({
+        url: 'http://localhost:5000/v3/api/auth/login',
+        method: 'POST',
+        data: {
+          email: email,
+          password: pass
+        }
+      });
+      return response.data;
+    },
+    {
+      loading: 'Logging in...',
+      success: (data) => `${data.msg}`,
+      error: 'Failed to Login, try again in sometime.'
+    }
+  )
+}
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
       <FieldGroup>
@@ -25,22 +56,19 @@ export function LoginForm({
         </div>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="user@example.com" required />
+          <Input value={email} onChange={(e) => {setEmail(e.target.value)}} id="email" type="email" placeholder="user@example.com" required />
         </Field>
         <Field>
           <div className="flex items-center">
             <FieldLabel htmlFor="password">Password</FieldLabel>
-            <a
-              href="#"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
+            <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
               Forgot your password?
             </a>
           </div>
-          <Input id="password" type="password" placeholder="password@123" required />
+          <Input value={pass} onChange={(e) => {setPass(e.target.value)}} id="password" type="password" placeholder="password@123" required />
         </Field>
         <Field>
-          <Button type="submit">Login</Button>
+          <Button type="button" onClick={() => {if(!email || !pass) {toast.error('Please fill all fields.'); return;} loginHandler({email, pass})}}>Login</Button>
         </Field>
         <FieldSeparator>Or continue with</FieldSeparator>
         <Field>
