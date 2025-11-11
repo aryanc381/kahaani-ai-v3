@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface inputProps {
   html: string;
@@ -31,28 +32,7 @@ interface signupProps {
   password: string;
 }
 
-async function signupHandler({fullName, phone, email, password}: signupProps) {
-  await toast.promise(
-    async () => {
-      const response = await axios({
-        url: 'http://localhost:5000/v3/api/auth/signup',
-        method: 'POST',
-        data: {
-          fullName: fullName,
-          phone: phone,
-          email: email,
-          password: password
-        }
-      });
-      return response.data;
-    },
-    {
-      loading: 'Creating your account...',
-      success: (data) => `${data.msg}`,
-      error: 'Failed to create account.'
-    }
-  )
-}
+
 
 export function FieldInput({html, htmlVal, id, type, placeholder, value, func}: inputProps) {
   return(
@@ -67,6 +47,32 @@ export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+  const navigate = useNavigate();
+  async function signupHandler({fullName, phone, email, password}: signupProps) {
+    await toast.promise(
+      async () => {
+        const response = await axios({
+          url: 'http://localhost:5000/v3/api/auth/signup',
+          method: 'POST',
+          data: {
+            fullName: fullName,
+            phone: phone,
+            email: email,
+            password: password
+          }
+        });
+        if(response.data.status === 201) {
+            setTimeout(() => {navigate('/login');}, 5000);
+        }
+        return response.data;
+      },
+      {
+        loading: 'Creating your account...',
+        success: (data) => `${data.msg}`,
+        error: 'Failed to create account, try again in sometime.'
+      }
+    )
+  }
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');

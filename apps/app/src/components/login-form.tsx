@@ -12,32 +12,14 @@ import { FaGoogle } from "react-icons/fa"
 import { useState } from "react"
 import { toast } from "sonner"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 interface LoginProps {
   email: string;
   pass: string;
 }
 
-async function loginHandler({email, pass}: LoginProps) {
-  await toast.promise(
-    async () => {
-      const response = await axios({
-        url: 'http://localhost:5000/v3/api/auth/login',
-        method: 'POST',
-        data: {
-          email: email,
-          password: pass
-        }
-      });
-      return response.data;
-    },
-    {
-      loading: 'Logging in...',
-      success: (data) => `${data.msg}`,
-      error: 'Failed to Login, try again in sometime.'
-    }
-  )
-}
+
 
 export function LoginForm({
   className,
@@ -45,6 +27,32 @@ export function LoginForm({
 }: React.ComponentProps<"form">) {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const navigate = useNavigate();
+
+  async function loginHandler({email, pass}: LoginProps) {
+    await toast.promise(
+      async () => {
+        const response = await axios({
+          url: 'http://localhost:5000/v3/api/auth/login',
+          method: 'POST',
+          data: {
+            email: email,
+            password: pass
+          }
+        });
+        if(response.data.status === 200) {
+          setTimeout(() => {navigate('/home');}, 5000);
+        }
+        return response.data;
+        
+      },
+      {
+        loading: 'Logging in...',
+        success: (data) => `${data.msg}`,
+        error: 'Failed to Login, try again in sometime.'
+      }
+    )
+  }
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
       <FieldGroup>

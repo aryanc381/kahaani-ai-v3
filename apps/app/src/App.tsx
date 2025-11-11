@@ -4,6 +4,7 @@ import Signup from './pages/signup';
 import { ThemeProvider } from './components/theme-provider';
 import Login from './pages/login';
 import { Toaster } from './components/ui/sonner';
+import Home from './pages/home';
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
         <Routes>
           <Route path='/signup' element={<Signup />} />
           <Route path='/' element={<Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>
