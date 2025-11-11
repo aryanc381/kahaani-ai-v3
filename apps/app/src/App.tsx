@@ -6,6 +6,7 @@ import Login from './pages/login';
 import { Toaster } from './components/ui/sonner';
 import Home from './pages/home';
 import Map from './components/map/map';
+import Social from './pages/social';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/home' element={<Home />} />
           <Route path='/map' element={<Map />} />
+          <Route path='/social' element={<Social />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -24,10 +24,10 @@ function Icon({ name, icon: IconComponent, nav, size }: iconProps) {
   );
 }
 const icons = [
-    { name: 'Home', icon: VscHome, nav: '/home'},
-    { name: 'My tours', icon: MdOutlineTour, nav: '/tours'},
-    { name: 'Friends', icon: LiaUserFriendsSolid, nav: '/friends'},
-    { name: 'Account', icon: VscAccount, nav: '/account'}
+    { name: 'Home', icon: VscHome, nav: 'home'},
+    { name: 'My tours', icon: MdOutlineTour, nav: 'tours'},
+    { name: 'Friends', icon: LiaUserFriendsSolid, nav: 'social'},
+    { name: 'Account', icon: VscAccount, nav: 'account'}
 ]
 
 function Dock() {
