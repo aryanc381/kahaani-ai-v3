@@ -3,7 +3,6 @@ import { HeaderKah } from "@/components/search-home";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MdOutlineSettingsVoice } from "react-icons/md";
 
 function Social() {
   return (
@@ -90,7 +89,7 @@ export function Avatars() {
           <AvatarFallback>ER</AvatarFallback>
         </Avatar>
       </div>
-    )
+    );
 }
 
 export default Social;

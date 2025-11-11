@@ -1,7 +1,9 @@
 import {VscAccount, VscHome} from 'react-icons/vsc';
 import { LiaUserFriendsSolid } from "react-icons/lia";
-import { MdTour, MdOutlineTour } from "react-icons/md";
-import { MdOutlineSettingsVoice } from "react-icons/md";
+import { PiMapPinArea } from "react-icons/pi";
+
+
+
 import type React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,7 +27,7 @@ function Icon({ name, icon: IconComponent, nav, size }: iconProps) {
 }
 const icons = [
     { name: 'Home', icon: VscHome, nav: 'home'},
-    { name: 'My tours', icon: MdOutlineTour, nav: 'tours'},
+    { name: 'Tours', icon: PiMapPinArea, nav: 'tours'},
     { name: 'Friends', icon: LiaUserFriendsSolid, nav: 'social'},
     { name: 'Account', icon: VscAccount, nav: 'account'}
 ]
