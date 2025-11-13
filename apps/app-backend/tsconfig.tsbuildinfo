@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/models/user.ts","./src/routes/root.ts","./src/routes/auth/login.ts","./src/routes/auth/signup.ts","./src/routes/social/decision.ts","./src/routes/social/request.ts","./src/types/usert.ts"],"version":"5.9.2"}
+{"root":["./src/index.ts","./src/models/user.ts","./src/routes/root.ts","./src/routes/auth/login.ts","./src/routes/auth/signup.ts","./src/routes/social/decision.ts","./src/routes/social/request.ts","./src/routes/social/search.ts","./src/types/usert.ts"],"version":"5.9.2"}

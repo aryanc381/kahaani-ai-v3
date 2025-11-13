@@ -35,7 +35,7 @@ const icons = [
 function Dock() {
   return (
     <div
-      className="z-2 fixed bottom-[5%] left-1/2 -translate-x-1/2 flex justify-center items-center w-[80vw] md:w-[50vw] rounded-[2rem] bg-white/20  backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.25)] p-[2vw] transition-all duration-500">
+      className="z-2 fixed bottom-[8%] left-1/2 -translate-x-1/2 flex justify-center items-center w-[80vw] md:w-[50vw] rounded-[2rem] bg-white/20  backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.25)] p-[2vw] transition-all duration-500">
       <div className="flex justify-around w-full">
         {icons.map((item) => (
           <Icon size="8" key={item.nav} {...item} />
