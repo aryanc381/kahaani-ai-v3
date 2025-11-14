@@ -1,19 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import Signup from './pages/signup';
+import Signup from './pages/auth/signup';
 import { ThemeProvider } from './components/theme-provider';
-import Login from './pages/login';
+import Login from './pages/auth/login';
 import { Toaster } from './components/ui/sonner';
-import Home from './pages/home';
+import Home from './pages/home/home';
 import Map from './components/map/map';
-import Social from './pages/social';
+import Social from './pages/social/social';
+import Tours from './pages/tours/tours';
 
 function App() {
-
-
   return (
-    <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-
+    <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
     <div className='mt-[3vw] m-[10vw]'>
       <Toaster />
       <BrowserRouter>
@@ -24,10 +22,10 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/map' element={<Map />} />
           <Route path='/social' element={<Social />} />
+          <Route path='/tours' element={<Tours />} />
         </Routes>
       </BrowserRouter>
     </div>
-    
     </ThemeProvider>
   )
 }

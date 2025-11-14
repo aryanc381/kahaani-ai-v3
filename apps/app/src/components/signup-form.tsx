@@ -32,8 +32,6 @@ interface signupProps {
   password: string;
 }
 
-
-
 export function FieldInput({html, htmlVal, id, type, placeholder, value, func}: inputProps) {
   return(
     <Field>

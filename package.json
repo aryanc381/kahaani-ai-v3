@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@mistralai/mistralai": "^1.10.0",
+    "@reduxjs/toolkit": "^2.10.1",
     "@tailwindcss/vite": "^4.1.17",
     "@types/axios": "^0.9.36",
     "@types/bcrypt": "^6.0.0",
@@ -34,6 +35,8 @@
     "@types/mapbox-gl": "^3.4.1",
     "@types/mongoose": "^5.11.96",
     "@types/react-map-gl": "^6.1.7",
+    "@types/redux": "^3.6.31",
+    "@vapi-ai/web": "^2.5.0",
     "axios": "^1.13.2",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
@@ -48,7 +51,10 @@
     "react-icons": "^5.5.0",
     "react-leaflet": "^5.0.0",
     "react-map-gl": "^7.0.18",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.5",
+    "redux": "^5.0.1",
+    "stripe": "^19.3.1",
     "tailwindcss": "^4.1.17",
     "undici": "^7.16.0",
     "zod": "^4.1.12"
