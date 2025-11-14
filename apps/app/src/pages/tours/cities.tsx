@@ -115,7 +115,7 @@ export async function handleCheckout(product: {
 }) {
   try {
     const res = await axios.post(
-      "http://192.168.1.60:5000/v3/api/payment/create-checkout-session",
+      " https://unfleshly-epochally-versie.ngrok-free.dev/v3/api/payment/create-checkout-session",
       { product }
     );
 
