@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Account() {
   const [name, setName] = useState<string>("Aditya Yenpure");
@@ -21,6 +22,7 @@ export default function Account() {
   const [newPassword, setNewPassword] = useState("");
   const [language, setLanguage] = useState<string>("English");
   const [selectedLanguage, setSelectedLanguage] = useState<string>(language);
+  const navigate = useNavigate();
 
   function saveName(onClose?: () => void) {
     setName(tempName);
@@ -197,12 +199,11 @@ export default function Account() {
             </ul>
           </div>
 
-          <button className="w-full p-[4vw] text-[4vw] font-semibold bg-red-500 text-white rounded-xl">Logout</button>
+          <button className="w-full p-[4vw] text-[4vw] font-semibold bg-red-500 text-white rounded-xl" onClick={() => {navigate('/login')}}>Logout</button>
         </div>
 
         <div className="fixed bottom-0 w-full"><Dock /></div>
       </div>
-    </div>
-    
+    </div>    
   );
 }

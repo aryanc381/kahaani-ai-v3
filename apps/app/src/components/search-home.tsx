@@ -85,14 +85,9 @@ export function Searchbar() {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle className="text-xl">Talk With Kahaani</DialogTitle>
-
                 <div className="mt-6 flex flex-col items-center gap-6">
-
-                  <Button
-                    className="w-full py-6 rounded-xl"
-                    onClick={isConnected ? endCall : startCall}
-                    disabled={isLoading}
-                  >
+                  <img src="/siri.gif" alt="" />
+                  <Button className="w-full py-6 rounded-xl" onClick={isConnected ? endCall : startCall} disabled={isLoading}>
                     {isConnected
                       ? "End Call"
                       : isLoading
