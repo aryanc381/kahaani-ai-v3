@@ -45,8 +45,8 @@ export default function Map() {
 
     const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
       <div style="padding: 5vw; border-radius: 5vw; background: white; font-family: sans-serif; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
-        <h3 style="font-size: 4vw; margin: 0; font-weight: 600;">${match.name}</h3>
-        <p style="font-size: 3vw; margin: 2vw 0 0;">${match.desc}</p>
+        <h3 style="color: black; font-size: 4vw; margin: 0; font-weight: 600;">${match.name}</h3>
+        <p style="color: black; font-size: 3vw; margin: 2vw 0 0;">${match.desc}</p>
       </div>
     `);
 
