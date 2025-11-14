@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import Map from './components/map/map';
 import Social from './pages/social/social';
 import Tours from './pages/tours/tours';
+import Account from './pages/account/account';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/map' element={<Map />} />
           <Route path='/social' element={<Social />} />
           <Route path='/tours' element={<Tours />} />
+          <Route path='/account' element={<Account />} />
         </Routes>
       </BrowserRouter>
     </div>
