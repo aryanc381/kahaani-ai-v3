@@ -50,7 +50,7 @@ export function SignupForm({
     await toast.promise(
       async () => {
         const response = await axios({
-          url: 'http://localhost:5000/v3/api/auth/signup',
+          url: ' https://unfleshly-epochally-versie.ngrok-free.dev/v3/api/auth/signup',
           method: 'POST',
           data: {
             fullName: fullName,
