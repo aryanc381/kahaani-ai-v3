@@ -61,19 +61,10 @@ export function Searchbar() {
   return (
     <>
       <HeaderKah />
-
       <div className="z-10 mt-[4vw] flex justify-center w-full max-w-sm items-center gap-2">
         <div className="flex gap-[2vw]">
-
-          <Input
-            className="w-[50vw] p-[6vw] rounded-2xl"
-            type="text"
-            placeholder="Forts near me..."
-          />
-
-          <Button className="p-[6vw] rounded-2xl" type="submit" variant="outline">
-            Search
-          </Button>
+          <Input className="w-[50vw] p-[6vw] rounded-2xl" type="text" placeholder="Forts near me...." />
+          <Button className="p-[6vw] rounded-2xl" type="submit" variant="outline">Search</Button>
 
           <Dialog>
             <DialogTrigger>
@@ -81,24 +72,19 @@ export function Searchbar() {
                 <MdOutlineSettingsVoice />
               </Button>
             </DialogTrigger>
-
-            <DialogContent>
+            
+            <DialogContent className="bg-black">
               <DialogHeader>
                 <DialogTitle className="text-xl">Talk With Kahaani</DialogTitle>
                 <div className="mt-6 flex flex-col items-center gap-6">
                   <img src="/siri.gif" alt="" />
                   <Button className="w-full py-6 rounded-xl" onClick={isConnected ? endCall : startCall} disabled={isLoading}>
-                    {isConnected
-                      ? "End Call"
-                      : isLoading
-                      ? "Connecting..."
-                      : "Start Voice Chat"}
+                    {isConnected ? "End Call" : isLoading ? "Connecting..." : "Start Voice Chat"}
                   </Button>
                 </div>
               </DialogHeader>
             </DialogContent>
           </Dialog>
-
         </div>
       </div>
     </>
